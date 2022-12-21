@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <section>
+    <a class="" href="/">Home</a>
+    {{#if session.loggedIn}}
+      <a href="/" id="logout-link">Logout</a>
+      <script src="/js/logout.js"></script>
+    {{else}}
+      <a href="/login">Login</a>
+      <script src="/js/login.js"></script>
+    {{/if}}
+  </section>
+</nav>

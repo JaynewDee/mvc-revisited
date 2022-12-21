@@ -28,6 +28,7 @@
     "inflection": "^2.0.0",
     "memorystore": "^1.6.7",
     "mysql2": "^2.0.1",
+    "octokit": "^2.0.10",
     "sequelize": "^5.21.2",
     "ws": "^8.11.0"
   },

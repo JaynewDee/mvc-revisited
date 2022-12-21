@@ -1,11 +1,15 @@
 import { Router } from "express";
 import { User } from "../models/User.js";
-
+import { authorize } from "../utils/auth.js";
+import { gitService } from "../services/octo.js";
 const home = Router();
-// get all posts for homepage
-home.get("/", async (req, res) => {
+
+home.get("/", authorize, async (req, res) => {
+  const session = req.session ? req.session : { status: "unauthorized" };
   try {
-    res.render("home");
+    const repos = await gitService("JaynewDee").getRepos();
+    console.log(repos);
+    res.render("home", { session });
   } catch (err) {
     res.status(500).json(err);
   }

@@ -1,12 +1,25 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #9caea9;
-  --tertiary: #788585;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --primary: #040404;
+  --secondary: #d7d9ce;
+  --tertiary: #0c7489;
+  --light-dark: #119da4;
+  --dark: #13505b;
   --border-radius: 0.3rem;
+  font-family: monospace;
 }
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  min-height: 3rem;
 }

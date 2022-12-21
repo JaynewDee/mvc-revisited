@@ -3,16 +3,18 @@ import { User } from "../../models/User.js";
 
 const user = Router();
 
-user.post("/", async (req, res) => {
+user.post("/signup", async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
+      email: req.body.email,
       password: req.body.password
     });
 
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
+      req.session.email = newUser.email;
       req.session.loggedIn = true;
 
       res.json(newUser);
@@ -29,7 +31,6 @@ user.post("/login", async (req, res) => {
         username: req.body.username
       }
     });
-    console.log(user);
     if (!user) {
       res.status(400).json({ message: "No user account found!" });
       return;
@@ -57,6 +58,7 @@ user.post("/login", async (req, res) => {
 user.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
+      console.log(`DESTROOOOOOOY!!! =)`);
       res.status(204).end();
     });
   } else {
