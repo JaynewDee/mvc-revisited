@@ -17,14 +17,6 @@ const User = connection.define(
       type: STRING,
       allowNull: false
     },
-    email: {
-      type: STRING,
-      allowNull: false,
-      validate: {
-        isEmail: true
-      },
-      unique: true
-    },
     password: {
       type: STRING,
       allowNull: false,
